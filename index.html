@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خطة الأمن السيبراني – التحقيق الجنائي الرقمي | جامعة الملك خالد</title>
+<meta name="description" content="خطة بكالوريوس الأمن السيبراني، مجال التحقيق الجنائي الرقمي بجامعة الملك خالد: 134 ساعة معتمدة، المقررات ومتطلباتها ومتابعة التقدم الدراسي.">
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0d1f35;
+    --navy-mid:   #132d4a;
+    --navy-light: #1a3e63;
+    --gold:       #c8973a;
+    --gold-light: #e8b84b;
+    --gold-pale:  #fdf3dc;
+    --teal:       #1b6b6b;
+    --teal-light: #238f8f;
+    --slate:      #e8edf2;
+    --text-main:  #0d1f35;
+    --text-muted: #5a7080;
+    --white:      #ffffff;
+    --sem1:  #1a4971;
+    --sem2:  #1a5c5c;
+    --sem3:  #2a5e2a;
+    --sem4:  #5c3d1a;
+    --sem5:  #4a1a5c;
+    --sem6:  #6b1a1a;
+    --sem7:  #1a3d5c;
+    --sem8:  #3d1a4a;
+    --elec:  #4a3800;
+    
+    /* Status colors */
+    --status-taken-bg: #e0f2e9;
+    --status-taken-border: #1e7e5e;
+    --status-taken-text: #0f5c44;
+    --status-now-bg: #fff0db;
+    --status-now-border: #e68a2e;
+    --status-now-text: #b45f1b;
+    --status-not-bg: #fef1f0;
+    --status-not-border: #c23d2e;
+    --status-not-text: #a13326;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    background: #f0f4f8;
+    color: var(--text-main);
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1e4f7a 100%);
+    color: white;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .header-title {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .header-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.4rem;
+    font-weight: 400;
+  }
+  .header-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 1.2rem;
+  }
+  .hbadge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    padding: 0.3rem 1rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.9);
+    white-space: nowrap;
+  }
+  .hbadge.gold {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ─── MAIN WRAP ─── */
+  .main-wrap {
+    max-width: 1300px;
+    margin: 2rem auto;
+    padding: 0 1.2rem 3rem;
+  }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-top: 3px solid var(--gold);
+  }
+  .stat-num { font-size: 1.8rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .stat-lbl { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+  /* ─── SEMESTER CARD ─── */
+  .sem-wrap { margin-bottom: 1.2rem; }
+
+  .sem-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.07);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .sem-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.6rem;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.15s;
+    gap: 1rem;
+  }
+  .sem-header:hover { opacity: 0.92; }
+
+  .sem-title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .sem-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; font-weight: 700; color: white; flex-shrink: 0;
+  }
+  .sem-name { font-size: 1.1rem; font-weight: 700; color: white; }
+  .sem-sub  { font-size: 0.78rem; color: rgba(255,255,255,0.7); margin-top: 1px; }
+  .sem-credit-badge {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 0.3rem 0.9rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .sem-toggle {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .sem-card.collapsed .sem-toggle { transform: rotate(-90deg); }
+
+  /* ─── TABLE ─── */
+  .sem-body { overflow-x: auto; transition: max-height 0.35s ease; }
+  .sem-card.collapsed .sem-body { display: none; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  thead tr {
+    background: #f4f7fa;
+    border-bottom: 2px solid #e0e8f0;
+  }
+  thead th {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    text-align: right;
+    white-space: nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid #f0f4f7;
+    transition: background 0.12s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  td {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+  }
+  .td-code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.22rem 0.6rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .td-name { font-weight: 600; color: var(--text-main); }
+  .td-credit {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1rem;
+    text-align: center;
+  }
+  .td-prereq {
+    font-size: 0.78rem;
+    color: #8b6b42;
+    background: #fdf3dc;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    white-space: normal;
+    display: inline-block;
+    line-height: 1.4;
+  }
+  .td-prereq.none { background: #f0f0f0; color: #aaa; }
+
+  /* status badges */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.2rem 0.7rem;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+    margin-left: 0.6rem;
+  }
+  .status-taken {
+    background: var(--status-taken-bg);
+    color: var(--status-taken-text);
+    border: 1px solid var(--status-taken-border);
+  }
+  .status-now {
+    background: var(--status-now-bg);
+    color: var(--status-now-text);
+    border: 1px solid var(--status-now-border);
+  }
+  .status-not {
+    background: var(--status-not-bg);
+    color: var(--status-not-text);
+    border: 1px solid var(--status-not-border);
+  }
+  /* row number */
+  .row-n {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #e8edf2;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; font-weight: 700; color: var(--text-muted);
+  }
+
+  .table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.7rem 1.6rem;
+    background: #f8fafb;
+    border-top: 1px solid #e8edf2;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    gap: 0.4rem;
+  }
+  .total-chip {
+    background: var(--navy);
+    color: white;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+
+  /* ─── SECTION LABEL ─── */
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #e0e8f0;
+  }
+
+  /* ─── ELECTIVE CARD ─── */
+  .elec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.7rem;
+    padding: 1.2rem 1.4rem;
+    background: #fdf8ee;
+  }
+  .elec-item {
+    background: white;
+    border: 1px solid #e8dfc8;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transition: box-shadow 0.15s;
+  }
+  .elec-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .elec-name { font-size: 0.88rem; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .elec-code { font-size: 0.7rem; color: var(--text-muted); font-family: monospace; }
+  .elec-hr {
+    background: var(--gold);
+    color: white;
+    border-radius: 20px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .elec-note {
+    padding: 0.8rem 1.4rem;
+    background: #fdf8ee;
+    border-top: 1px solid #e8dfc8;
+    font-size: 0.8rem;
+    color: #8b6b42;
+  }
+
+  /* ─── FREE HOURS ─── */
+  .free-card {
+    background: white;
+    border-radius: 14px;
+    border: 2px dashed #b8d4b8;
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .free-icon { font-size: 2rem; }
+  .free-text { font-size: 0.9rem; font-weight: 600; color: var(--teal); }
+  .free-sub  { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+  /* ─── FOOTER ─── */
+  .page-footer {
+    text-align: center;
+    padding: 1.5rem 1rem 2.5rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-top: 1px solid #dde4eb;
+    margin-top: 1rem;
+  }
+
+  /* input panel style */
+  .input-panel {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    margin-bottom: 2rem;
+    border: 1px solid #e0e8f0;
+    overflow: hidden;
+  }
+  .panel-header {
+    background: var(--navy);
+    color: white;
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  .panel-header span:first-child { font-size: 1.2rem; }
+  .panel-content {
+    padding: 1.5rem;
+    background: #fefef7;
+    transition: all 0.2s;
+  }
+  .json-input {
+    width: 100%;
+    font-family: 'Courier New', monospace;
+    direction: ltr;
+    text-align: left;
+    background: #1e2a3a;
+    color: #e2e8f0;
+    border: none;
+    padding: 1rem;
+    border-radius: 14px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    resize: vertical;
+  }
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s;
+    background: var(--navy);
+    color: white;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+  }
+  .status-legend {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 20px;
+    margin-left: 6px;
+  }
+  .input-help { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.7rem; line-height: 1.8; }
+  #jsonFeedback { margin-top: 0.5rem; font-size: 0.85rem; }
+  .summary-chip { background: rgba(255,255,255,0.12); border-radius: 30px; padding: 0.3rem 1rem; }
+  .summary-total { background: var(--gold); color: var(--navy); font-weight: 700; }
+  .sem-header:focus-visible, .btn:focus-visible { outline: 3px solid var(--gold-light); outline-offset: -3px; }
+  @media (max-width: 640px) {
+    .sem-header { padding: 0.9rem 1rem; }
+    table { min-width: 640px; }
+    td, thead th { padding: 0.65rem 0.6rem; }
+    .td-code { font-size: 0.7rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .status-badge { font-size: 0.55rem; padding: 0.15rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-inner">
+    <div>
+      <div class="header-title">الخطة الدراسية – الأمن السيبراني</div>
+      <div class="header-sub">جامعة الملك خالد | كلية علوم الحاسب | قسم المعلوماتية وأنظمة الحاسب</div>
+      <div class="header-badges">
+        <span class="hbadge gold">درجة: بكالوريوس</span>
+        <span class="hbadge">الإصدار: 1</span>
+        <span class="hbadge">الفصل: 461</span>
+        <span class="hbadge">نوع الخطة: فرعي</span>
+        <span class="hbadge">الجنس: كليهما</span>
+        <span class="hbadge">التخصص: 010107</span>
+        <span class="hbadge gold">مجال التحقيق الجنائي الرقمي</span>
+        <span class="hbadge">المسار: 0101072</span>
+      </div>
+    </div>
+    <div style="text-align:center; background:rgba(255,255,255,0.1); border-radius:16px; padding:1rem 1.5rem;">
+      <div style="font-size:2.5rem;font-weight:700;color:#e8b84b;line-height:1" id="planTotal">134</div>
+      <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:4px">إجمالي الساعات المعتمدة</div>
+    </div>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <!-- لوحة إدخال JSON الديناميكية -->
+  <div class="input-panel" id="inputPanel">
+    <div class="panel-header" onclick="toggleInputPanel()">
+      <span>📋</span> بيانات التقدم الدراسي (JSON) 
+      <span style="font-size:0.8rem; margin-right:auto;">▼ اضغط لتوسيع/طي</span>
+    </div>
+    <div class="panel-content" id="panelContent">
+      <textarea id="jsonInput" class="json-input" rows="6" aria-label='بيانات التقدم الدراسي بصيغة JSON' aria-describedby='jsonHelp' placeholder='أدخل مصفوفة المستويات أو المقررات وحالتها ...'></textarea>
+      <p id="jsonHelp" class="input-help">يدعم مصفوفة المستويات التي تحتوي على courses، أو قائمة مقررات بالرمز code أو courseCode والحالة status. الاستيراد يحدّث الحالات فقط ولا يغيّر الخطة.</p>
+      <div id="jsonFeedback" role="status" aria-live="polite"></div>
+      <div class="button-group">
+        <button class="btn btn-gold" onclick="applyJsonStatus()">تطبيق الحالة من JSON</button>
+        <button class="btn btn-outline" onclick="resetToDefault()">إعادة تعيين (الكل غير مكتمل)</button>
+      </div>
+      <div class="status-legend">
+        <span><span class="legend-dot" style="background: var(--status-taken-border);"></span> مكتمل (TAKEN)</span>
+        <span><span class="legend-dot" style="background: var(--status-now-border);"></span> جاري التسجيل (TAKEN_NOW)</span>
+        <span><span class="legend-dot" style="background: var(--status-not-border);"></span> غير مكتمل (NOT_TAKEN)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar" id="statsBar"></div>
+
+  <div class="section-label">المقررات الإجبارية – مجال التحقيق الجنائي الرقمي</div>
+  <div id="dynamic-semesters"></div>
+
+  <div class="section-label" style="margin-top:2.5rem">المجموعة الاختيارية – يختار الطالب 2 ساعة</div>
+  <div class="sem-card" id="semE" style="border:2px solid #e8c87a;">
+    <div class="sem-header" style="background:var(--elec);" onclick="toggle('semE')">
+      <div class="sem-title-row">
+        <div class="sem-num" style="background:var(--gold);color:var(--navy);">⭐</div>
+        <div>
+          <div class="sem-name">المقررات الاختيارية</div>
+          <div class="sem-sub">يختار الطالب مقررًا واحدًا (2 ساعة) من القائمة التالية</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:.8rem">
+        <span class="sem-credit-badge" id="electiveAvailable">20 ساعة متاحة</span>
+        <span class="sem-toggle">▼</span>
+      </div>
+    </div>
+    <div class="sem-body" id="electives-container"></div>
+  </div>
+
+  <div class="free-card">
+    <div class="free-icon">📂</div>
+    <div>
+      <div class="free-text">الساعات الحرة (Free Electives)</div>
+      <div class="free-sub">2 ساعة معتمدة – يختار الطالب مقررًا حرًا وفق مسار دراسته</div>
+    </div>
+    <div style="margin-right:auto;background:#e6f4ee;color:#1b6b6b;border-radius:30px;padding:0.35rem 1rem;font-size:0.82rem;font-weight:700;white-space:nowrap">2 ساعة</div>
+  </div>
+
+  <div style="margin-top:2rem;background:var(--navy);color:white;border-radius:18px;padding:1.4rem 2rem;display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;">
+    <div style="font-size:1.05rem;font-weight:700">ملخص الساعات المعتمدة الكلي</div>
+    <div id="hoursSummary" style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.85rem;">
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  جامعة الملك خالد | كلية علوم الحاسب | الخطة الدراسية الإصدار 1 | الفصل 461 | التخصص: الأمن السيبراني 010107 | المسار: 0101072<br>
+  المصدر: الخطة المرفقة لمجال التحقيق الجنائي الرقمي | الحالات الافتراضية: غير مكتمل | تحديث الحالات عبر JSON
+</div>
+
+<script>
+  // المقررات والمتطلبات من خطة الأمن السيبراني المرفقة، وليست خطة علوم الحاسب.
+  const semestersData = [
+  {
+    "id": "sem1",
+    "name": "الفصل الدراسي الأول",
+    "level": "المستوى الأول",
+    "bg": "var(--sem1)",
+    "total": 15,
+    "courses": [
+      {
+        "code": "0212ثقف-2",
+        "name": "الوسطية والاعتدال",
+        "credit": 2,
+        "prereq": null
+      },
+      {
+        "code": "0291تطوع-2",
+        "name": "مهارات في التطوع",
+        "credit": 2,
+        "prereq": null
+      },
+      {
+        "code": "0383ريض-3",
+        "name": "الجبر الخطي",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "0522نجل-5",
+        "name": "اللغة الإنجليزية المكثفة",
+        "credit": 5,
+        "prereq": null
+      },
+      {
+        "code": "1311عال-3",
+        "name": "حل المشاكل والبرمجة",
+        "credit": 3,
+        "prereq": null
+      }
+    ]
+  },
+  {
+    "id": "sem2",
+    "name": "الفصل الدراسي الثاني",
+    "level": "المستوى الثاني",
+    "bg": "var(--sem2)",
+    "total": 15,
+    "courses": [
+      {
+        "code": "0221عرب-2",
+        "name": "مهارات اللغة العربية",
+        "credit": 2,
+        "prereq": null
+      },
+      {
+        "code": "0292نجل-2",
+        "name": "لغة إنجليزية متخصصة",
+        "credit": 2,
+        "prereq": "0522نجل-5 – اللغة الإنجليزية المكثفة"
+      },
+      {
+        "code": "0381ريض-3",
+        "name": "تفاضل وتكامل 1",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "0384ريض-3",
+        "name": "إحصاء واحتمالات",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "1312عال-3",
+        "name": "مقدمة في البرمجة",
+        "credit": 3,
+        "prereq": "1311عال-3 – حل المشاكل والبرمجة"
+      },
+      {
+        "code": "2261نال-2",
+        "name": "التواصل العلمي",
+        "credit": 2,
+        "prereq": null
+      }
+    ]
+  },
+  {
+    "id": "sem3",
+    "name": "الفصل الدراسي الثالث",
+    "level": "المستوى الثالث",
+    "bg": "var(--sem3)",
+    "total": 18,
+    "courses": [
+      {
+        "code": "1231نال-2",
+        "name": "البنية التحتية لتقنية المعلومات",
+        "credit": 2,
+        "prereq": null
+      },
+      {
+        "code": "1300أمن-3",
+        "name": "أساسيات الأمن السيبراني",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "2323عال-3",
+        "name": "نظم التشغيل",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "2412أمن-4",
+        "name": "علم التشفير",
+        "credit": 4,
+        "prereq": "0383ريض-3 – الجبر الخطي"
+      },
+      {
+        "code": "2413عال-4",
+        "name": "البرمجة كائنية التوجه",
+        "credit": 4,
+        "prereq": "1312عال-3 – مقدمة في البرمجة"
+      },
+      {
+        "code": "3226عال-2",
+        "name": "الابتكار التقني",
+        "credit": 2,
+        "prereq": null
+      }
+    ]
+  },
+  {
+    "id": "sem4",
+    "name": "الفصل الدراسي الرابع",
+    "level": "المستوى الرابع",
+    "bg": "var(--sem4)",
+    "total": 21,
+    "courses": [
+      {
+        "code": "2321نال-3",
+        "name": "نظم إدارة قواعد البيانات",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "2340أمن-3",
+        "name": "أمن الشبكات",
+        "credit": 3,
+        "prereq": "2412أمن-4 – علم التشفير"
+      },
+      {
+        "code": "2361أمن-3",
+        "name": "التدقيق في تقنية المعلومات",
+        "credit": 3,
+        "prereq": "1231نال-2 – البنية التحتية لتقنية المعلومات"
+      },
+      {
+        "code": "2431عال-4",
+        "name": "خوارزميات وهياكل البيانات",
+        "credit": 4,
+        "prereq": "2413عال-4 – البرمجة كائنية التوجه"
+      },
+      {
+        "code": "2461عال-4",
+        "name": "شبكات الحاسب",
+        "credit": 4,
+        "prereq": "2413عال-4 – البرمجة كائنية التوجه"
+      },
+      {
+        "code": "3315عال-4",
+        "name": "البرمجة بالبايثون",
+        "credit": 4,
+        "prereq": null
+      }
+    ]
+  },
+  {
+    "id": "sem5",
+    "name": "الفصل الدراسي الخامس",
+    "level": "المستوى الخامس",
+    "bg": "var(--sem5)",
+    "total": 18,
+    "courses": [
+      {
+        "code": "3331أمن-3",
+        "name": "التحقيق الجنائي والاستجابة للحوادث",
+        "credit": 3,
+        "prereq": "2340أمن-3 – أمن الشبكات"
+      },
+      {
+        "code": "3332أمن-3",
+        "name": "التحقيق الجنائي في الشبكات",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "3351أمن-3",
+        "name": "تعلم الآلة في الأمن السيبراني",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "3371أمن-3",
+        "name": "أمن البرمجيات",
+        "credit": 3,
+        "prereq": "2413عال-4 – البرمجة كائنية التوجه"
+      },
+      {
+        "code": "3372أمن-3",
+        "name": "أمن الويب والأجهزة المحمولة",
+        "credit": 3,
+        "prereq": "3315عال-4 – البرمجة بالبايثون"
+      },
+      {
+        "code": "4342هال-3",
+        "name": "إنترنت الأشياء",
+        "credit": 3,
+        "prereq": null
+      }
+    ]
+  },
+  {
+    "id": "sem6",
+    "name": "الفصل الدراسي السادس",
+    "level": "المستوى السادس",
+    "bg": "var(--sem6)",
+    "total": 16,
+    "courses": [
+      {
+        "code": "3333أمن-3",
+        "name": "التحقيق الجنائي في إنترنت الأشياء",
+        "credit": 3,
+        "prereq": "4342هال-3 – إنترنت الأشياء"
+      },
+      {
+        "code": "3334أمن-3",
+        "name": "التحقيق الجنائي في نظم التشغيل",
+        "credit": 3,
+        "prereq": "2323عال-3 – نظم التشغيل"
+      },
+      {
+        "code": "3373أمن-3",
+        "name": "اختبار الاختراقات",
+        "credit": 3,
+        "prereq": "2340أمن-3 – أمن الشبكات"
+      },
+      {
+        "code": "3373نال-3",
+        "name": "الحوسبة السحابية",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "3381أمن-4",
+        "name": "أمن نظم التشغيل",
+        "credit": 4,
+        "prereq": "2323عال-3 – نظم التشغيل"
+      }
+    ]
+  },
+  {
+    "id": "sem7",
+    "name": "الفصل الدراسي السابع",
+    "level": "المستوى السابع",
+    "bg": "var(--sem7)",
+    "total": 19,
+    "courses": [
+      {
+        "code": "0401مهر-4",
+        "name": "مهارات الإعداد الوظيفي (تدريب 1)",
+        "credit": 4,
+        "prereq": null
+      },
+      {
+        "code": "3358نال-3",
+        "name": "التقنيات الناشئة",
+        "credit": 3,
+        "prereq": null
+      },
+      {
+        "code": "4335أمن-3",
+        "name": "التحقيق الجنائي في الهواتف المتنقلة",
+        "credit": 3,
+        "prereq": "3372أمن-3 – أمن الويب والأجهزة المحمولة"
+      },
+      {
+        "code": "4336أمن-3",
+        "name": "تحليل البرمجيات الخبيثة بالتعلم العميق",
+        "credit": 3,
+        "prereq": "3351أمن-3 – تعلم الآلة في الأمن السيبراني"
+      },
+      {
+        "code": "4342أمن-3",
+        "name": "أمن الأنظمة الافتراضية والحوسبة السحابية",
+        "credit": 3,
+        "prereq": "3373نال-3 – الحوسبة السحابية"
+      },
+      {
+        "code": "4391أمن-3",
+        "name": "مشروع",
+        "credit": 3,
+        "prereq": null
+      }
+    ]
+  },
+  {
+    "id": "sem8",
+    "name": "الفصل الدراسي الثامن",
+    "level": "المستوى الثامن",
+    "bg": "var(--sem8)",
+    "total": 8,
+    "courses": [
+      {
+        "code": "4892أمن-8",
+        "name": "التدريب التعاوني",
+        "credit": 8,
+        "prereq": null
+      }
+    ]
+  }
+];
+
+  const electivesList = [
+  {
+    "code": "0211ثقف-2",
+    "name": "الأخلاق والقيم",
+    "credit": 2
+  },
+  {
+    "code": "0213ثقف-2",
+    "name": "الحقوق",
+    "credit": 2
+  },
+  {
+    "code": "0214ثقف-2",
+    "name": "بناء الوعي",
+    "credit": 2
+  },
+  {
+    "code": "0215وطن-2",
+    "name": "المدخل إلى الثقافة الوطنية",
+    "credit": 2
+  },
+  {
+    "code": "0231ثقف-2",
+    "name": "الفكروالفلسفة",
+    "credit": 2
+  },
+  {
+    "code": "0241فن-2",
+    "name": "الفنون",
+    "credit": 2
+  },
+  {
+    "code": "0251دار-2",
+    "name": "مبادىء ريادة الأعمال",
+    "credit": 2
+  },
+  {
+    "code": "0271وطن-2",
+    "name": "المواطنة",
+    "credit": 2
+  },
+  {
+    "code": "0272وطن-2",
+    "name": "التاريخ الوطني",
+    "credit": 2
+  },
+  {
+    "code": "0281صحة-2",
+    "name": "الوعي الصحي",
+    "credit": 2
+  }
+];
+
+  const electiveRequiredHours = 2;
+  const freeHours = 2;
+  const allCourses = [...semestersData.flatMap(sem => sem.courses), ...electivesList];
+  const defaultStatusMap = Object.fromEntries(allCourses.map(course => [course.code, 'NOT_TAKEN']));
+  let currentStatusMap = { ...defaultStatusMap };
+
+  function getStatusText(status) {
+    if (status === 'TAKEN') return '✓ مكتمل';
+    if (status === 'TAKEN_NOW') return '🟡 جاري';
+    return '⏳ غير مكتمل';
+  }
+  function getStatusClass(status) {
+    if (status === 'TAKEN') return 'status-taken';
+    if (status === 'TAKEN_NOW') return 'status-now';
+    return 'status-not';
+  }
+  
+  function decodeBase64(base64) {
+  try {
+    const binary = atob(base64);
+    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    return new TextDecoder('utf-8').decode(bytes);
+  } catch (error) {
+    console.error("Invalid Base64 string:", error);
+    return null;
+  }
+}
+  
+  function renderAll() {
+    renderSummary();
+    const collapsedIds = new Set([...document.querySelectorAll('.sem-card.collapsed')].map(card => card.id));
+    const container = document.getElementById('dynamic-semesters');
+    container.innerHTML = '';
+    for (let sem of semestersData) {
+      const semDiv = document.createElement('div');
+      semDiv.className = 'sem-wrap';
+      const semCard = document.createElement('div');
+      semCard.className = 'sem-card';
+      semCard.id = sem.id;
+      const header = document.createElement('div');
+      header.className = 'sem-header';
+      header.style.background = sem.bg;
+      header.setAttribute('onclick', `window.toggle('${sem.id}')`);
+      header.setAttribute('role', 'button');
+      header.tabIndex = 0;
+      header.setAttribute('aria-controls', `${sem.id}-body`);
+      header.setAttribute('aria-expanded', String(!collapsedIds.has(sem.id)));
+      header.onkeydown = event => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); window.toggle(sem.id); }
+      };
+      if (collapsedIds.has(sem.id)) semCard.classList.add('collapsed');
+      const semNum = sem.id === 'sem1' ? '١' : sem.id === 'sem2' ? '٢' : sem.id === 'sem3' ? '٣' : sem.id === 'sem4' ? '٤' : sem.id === 'sem5' ? '٥' : sem.id === 'sem6' ? '٦' : sem.id === 'sem7' ? '٧' : '٨';
+      header.innerHTML = `<div class="sem-title-row"><div class="sem-num">${semNum}</div><div><div class="sem-name">${sem.name}</div><div class="sem-sub">${sem.level}</div></div></div><div style="display:flex;align-items:center;gap:.8rem"><span class="sem-credit-badge">${sem.total} ساعة</span><span class="sem-toggle">▼</span></div>`;
+      const body = document.createElement('div');
+      body.className = 'sem-body';
+      body.id = `${sem.id}-body`;
+      let tableHtml = `<table><thead><tr><th>#</th><th>رمز المقرر</th><th>اسم المقرر</th><th style="text-align:center">ساعات</th><th>المتطلب السابق</th></tr></thead><tbody>`;
+      sem.courses.forEach((course, idx) => {
+        const status = currentStatusMap[course.code] || 'NOT_TAKEN';
+        const statusClass = getStatusClass(status);
+        const statusText = getStatusText(status);
+        const prereqHtml = course.prereq ? `<span class="td-prereq">${course.prereq}</span>` : `<span class="td-prereq none">–</span>`;
+        tableHtml += `<tr><td><span class="row-n">${idx+1}</span></td><td><span class="td-code" style="background:#eef3f8;">${course.code}</span></td><td class="td-name"><span class="status-badge ${statusClass}">${statusText}</span> ${course.name}</td><td class="td-credit">${course.credit}</td><td>${prereqHtml}</td></tr>`;
+      });
+      tableHtml += `</tbody></table><div class="table-footer">المجموع: <span class="total-chip">${sem.total} ساعة</span></div>`;
+      body.innerHTML = tableHtml;
+      semCard.appendChild(header);
+      semCard.appendChild(body);
+      semDiv.appendChild(semCard);
+      container.appendChild(semDiv);
+    }
+    // electives
+    const electivesContainer = document.getElementById('electives-container');
+    let gridHtml = `<div class="elec-grid">`;
+    for (let elec of electivesList) {
+      const status = currentStatusMap[elec.code] || 'NOT_TAKEN';
+      const statusClass = getStatusClass(status);
+      const statusText = getStatusText(status);
+      gridHtml += `<div class="elec-item"><div><div class="elec-name"><span class="status-badge ${statusClass}" style="margin-left:0;">${statusText}</span> ${elec.name}</div><div class="elec-code">${elec.code}</div></div><span class="elec-hr">${elec.credit} س</span></div>`;
+    }
+    gridHtml += `</div><div class="elec-note">⚠️ المجموع المتاح 20 ساعة – يُلزم الطالب بانتخاب <strong>2 ساعة فقط</strong> (الحالة تعكس الاختيار الشخصي)</div>`;
+    electivesContainer.innerHTML = gridHtml;
+  }
+  
+  function renderSummary() {
+    const compulsoryCourses = semestersData.flatMap(sem => sem.courses);
+    const compulsoryHours = compulsoryCourses.reduce((sum, course) => sum + course.credit, 0);
+    const totalHours = compulsoryHours + electiveRequiredHours + freeHours;
+    const availableHours = electivesList.reduce((sum, course) => sum + course.credit, 0);
+    const stats = [
+      [semestersData.length, 'فصول دراسية'], [compulsoryCourses.length, 'مقرر إجباري'],
+      [compulsoryHours, 'ساعات إجبارية'], [electiveRequiredHours + freeHours, 'ساعات اختيارية وحرة'],
+      [electivesList.length, 'مقررات اختيارية متاحة']
+    ];
+    document.getElementById('statsBar').innerHTML = stats.map(([num, label]) =>
+      `<div class="stat-card"><div class="stat-num">${num}</div><div class="stat-lbl">${label}</div></div>`).join('');
+    document.getElementById('planTotal').textContent = totalHours;
+    document.getElementById('electiveAvailable').textContent = `${availableHours} ساعة متاحة`;
+    document.getElementById('hoursSummary').innerHTML = semestersData.map((sem, index) =>
+      `<span class="summary-chip">ف${index + 1}: ${sem.total} ساعة إجبارية</span>`).join('') +
+      `<span class="summary-chip">اختياري: ${electiveRequiredHours} | حر: ${freeHours}</span>` +
+      `<span class="summary-chip summary-total">الإجمالي: ${totalHours} ساعة ✓</span>`;
+  }
+
+  function showFeedback(message, isError = false) {
+    const feedback = document.getElementById('jsonFeedback');
+    feedback.textContent = message;
+    feedback.style.color = isError ? 'var(--status-not-text)' : 'var(--status-taken-text)';
+  }
+
+  function applyJsonStatus() {
+    try {
+      const parsed = JSON.parse(document.getElementById('jsonInput').value);
+      if (!Array.isArray(parsed)) throw new Error('يجب أن يكون المدخل مصفوفة مستويات أو مقررات');
+      const entries = parsed.flatMap(item => Array.isArray(item?.courses) ? item.courses : [item]);
+      const newMap = {};
+      let ignored = 0;
+      for (const item of entries) {
+        const code = item?.courseCode ?? item?.code;
+        if (Object.hasOwn(defaultStatusMap, code) && ['TAKEN', 'TAKEN_NOW', 'NOT_TAKEN'].includes(item?.status)) {
+          newMap[code] = item.status;
+        } else {
+          ignored++;
+        }
+      }
+      const count = Object.keys(newMap).length;
+      if (count === 0) throw new Error('لم يتم العثور على حالات صالحة لمقررات خطة الأمن السيبراني');
+      currentStatusMap = { ...defaultStatusMap, ...newMap };
+      renderAll();
+      showFeedback(`تم تحديث حالة ${count} مقرر بنجاح.${ignored ? ` تم تجاهل ${ignored} سجل غير صالح أو خارج الخطة.` : ''}`);
+      return true;
+    } catch (error) {
+      showFeedback('تعذر تطبيق JSON: ' + error.message, true);
+      return false;
+    }
+  }
+
+  function resetToDefault() {
+    currentStatusMap = { ...defaultStatusMap };
+    renderAll();
+    document.getElementById('jsonInput').value = '';
+    showFeedback('تمت إعادة جميع المقررات إلى حالة غير مكتمل.');
+  }
+
+  window.toggle = function(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.toggle('collapsed');
+      el.querySelector('.sem-header')?.setAttribute('aria-expanded', String(!el.classList.contains('collapsed')));
+    }
+  };
+  window.toggleInputPanel = function() {
+    const content = document.getElementById('panelContent');
+    if (content.style.display === 'none') content.style.display = 'block';
+    else content.style.display = 'none';
+  };
+  
+  renderAll();
+  document.getElementById('panelContent').style.display = 'none';
+  const JsonC = new URLSearchParams(window.location.search).get('JsonC');
+  if (JsonC) {
+    const decoded = decodeBase64(JsonC.replace(/ /g, '+'));
+    document.getElementById('panelContent').style.display = 'block';
+    if (decoded === null) {
+      showFeedback('تعذر قراءة بيانات الرابط: ترميز Base64 غير صالح.', true);
+    } else {
+      document.getElementById('jsonInput').value = decoded;
+      applyJsonStatus();
+    }
+  }
+</script>
+</body>
+</html>
